@@ -8,7 +8,8 @@
         "dev": "rsbuild dev",
         "format": "prettier --write .",
         "lint": "eslint .",
-        "preview": "rsbuild preview"
+        "preview": "rsbuild preview",
+        "deploy": "npm run build && wrangler deploy"
     },
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "7.0.0",
@@ -33,6 +34,13 @@
         "jscrewit": "2.40.0",
         "prettier": "3.6.2",
         "prettier-plugin-tailwindcss": "0.6.14",
-        "tailwindcss": "4.1.12"
+        "tailwindcss": "4.1.12",
+        "wrangler": "4.118.0"
+    },
+    "allowScripts": {
+        "core-js@3.45.1": true,
+        "@tailwindcss/oxide@4.1.12": true,
+        "esbuild@0.28.1": true,
+        "workerd@1.20260730.1": true
     }
 }
