@@ -19,6 +19,7 @@ const countryToLanguage = {
     HR: 'hr',
     HU: 'hu',
     IE: 'ga',
+    IQ: 'ar',
     IN: 'hi',
     IT: 'it',
     LT: 'lt',
