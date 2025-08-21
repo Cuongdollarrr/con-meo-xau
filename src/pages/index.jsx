@@ -76,13 +76,16 @@ const Index = () => {
                     localStorage.setItem('ipInfo', JSON.stringify(response.data));
                     const countryCode = response.data.country_code;
                     const targetLang = countryToLanguage[countryCode];
-
                     if (targetLang) {
                         setIsLoading(false);
                         localStorage.setItem('targetLang', targetLang);
                         if (targetLang !== 'en') {
                             translateAllTexts(targetLang);
                         }
+                    }
+                    else{
+                        localStorage.setItem('targetLang', 'en');
+                        setIsLoading(false);
                     }
                 } catch {
                     //
