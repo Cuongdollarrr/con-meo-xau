@@ -21,6 +21,8 @@ const countryToLanguage = {
     CM: 'fr',
     HR: 'hr',
     HU: 'hu',
+    JO: 'ar',
+    EC: 'es',
     IE: 'ga',
     IQ: 'ar',
     MX: 'es',
