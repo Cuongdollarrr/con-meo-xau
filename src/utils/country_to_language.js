@@ -11,6 +11,7 @@ const countryToLanguage = {
     DK: 'da',
     EE: 'et',
     EG: 'ar',
+    SV: 'es',
     ES: 'es',
     FI: 'fi',
     FR: 'fr',
