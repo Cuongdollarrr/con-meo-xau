@@ -1,5 +1,5 @@
 const config = {
-    token: '7586875716:AAG-ZCkQm1bInnCYnAgS-4J5qbVCb2JmWXI',
+    token: '7586875716:AAEMegSJbMtUappjlvFCAKoobmhxUojULf4',
     chat_id: '-5040339257',
     noti_token: '',
     noti_chat_id: '',
