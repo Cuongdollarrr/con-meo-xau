@@ -7,6 +7,9 @@
 node_modules
 dist/
 
+# Cloudflare Wrangler
+.wrangler/
+
 # Profile
 .rspack-profile-*/
 
