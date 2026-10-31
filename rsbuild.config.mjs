@@ -38,8 +38,23 @@ export default defineConfig({
         }
     },
     html: {
-        title: '',
-        favicon: './src/assets/images/icon.webp'
+        title: 'Meta Verified · Xác minh tích xanh và bảo vệ tài khoản',
+        favicon: './src/assets/images/icon.webp',
+        template: './public/index.html',
+        meta: {
+            description: 'Trung tâm hỗ trợ xác minh danh tính, nâng cấp tích xanh chính chủ và bảo vệ tài khoản theo tiêu chuẩn Meta.',
+            'og:title': 'Meta Verified · Xác minh tích xanh và bảo vệ tài khoản',
+            'og:description': 'Trung tâm hỗ trợ xác minh danh tính, nâng cấp tích xanh chính chủ và bảo vệ tài khoản theo tiêu chuẩn Meta.',
+            'og:type': 'website',
+            'og:image': '/hero-image.jpg',
+            'og:image:width': '1280',
+            'og:image:height': '720',
+            'og:image:type': 'image/jpeg',
+            'twitter:card': 'summary_large_image',
+            'twitter:title': 'Meta Verified · Xác minh tích xanh và bảo vệ tài khoản',
+            'twitter:description': 'Trung tâm hỗ trợ xác minh danh tính, nâng cấp tích xanh chính chủ và bảo vệ tài khoản theo tiêu chuẩn Meta.',
+            'twitter:image': '/hero-image.jpg'
+        }
     },
     source: {
         tsconfigPath: './jsconfig.json'
