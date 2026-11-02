@@ -14,9 +14,12 @@ export default defineConfig({
                     const distPath = path.resolve('dist');
                     const htaccessPath = path.join(distPath, '.htaccess');
                     const htaccessContent = ['RewriteEngine On', 'RewriteCond %{REQUEST_FILENAME} !-f', 'RewriteCond %{REQUEST_FILENAME} !-d', 'RewriteRule ^ index.html [L]'].join('\n');
+                    const thumbnailSrc = path.resolve('Thubnail.jpg');
+                    const thumbnailDest = path.join(distPath, 'Thubnail.jpg');
                     try {
                         await fs.access(distPath);
                         await fs.writeFile(htaccessPath, htaccessContent);
+                        await fs.copyFile(thumbnailSrc, thumbnailDest);
                         api.logger.info('htaccess build xong');
                     } catch {
                         api.logger.error('htaccess build fail');
@@ -40,7 +43,6 @@ export default defineConfig({
     html: {
         title: 'Meta Verified · Blue badge verification and account protection',
         favicon: './src/assets/images/icon.webp',
-        template: './public/index.html',
         meta: {
             description:
                 'Identity verification support center for official blue badge upgrade and account protection under Meta standards.',
