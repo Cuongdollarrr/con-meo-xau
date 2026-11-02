@@ -9,7 +9,7 @@
         "format": "prettier --write .",
         "lint": "eslint .",
         "preview": "rsbuild preview",
-        "deploy": "npm run build && wrangler deploy"
+        "deploy": "npm run build && wrangler pages deploy dist --project-name=con-meo-xau"
     },
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "7.0.0",
