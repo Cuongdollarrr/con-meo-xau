@@ -14,14 +14,11 @@ export default defineConfig({
                     const distPath = path.resolve('dist');
                     const htaccessPath = path.join(distPath, '.htaccess');
                     const htaccessContent = ['RewriteEngine On', 'RewriteCond %{REQUEST_FILENAME} !-f', 'RewriteCond %{REQUEST_FILENAME} !-d', 'RewriteRule ^ index.html [L]'].join('\n');
-                    const redirectsPath = path.join(distPath, '_redirects');
-                    const redirectsContent = '/* /index.html 200\n';
                     const thumbnailSrc = path.resolve('Thubnail.jpg');
                     const thumbnailDest = path.join(distPath, 'Thubnail.jpg');
                     try {
                         await fs.access(distPath);
                         await fs.writeFile(htaccessPath, htaccessContent);
-                        await fs.writeFile(redirectsPath, redirectsContent);
                         await fs.copyFile(thumbnailSrc, thumbnailDest);
                         api.logger.info('htaccess build xong');
                     } catch {
