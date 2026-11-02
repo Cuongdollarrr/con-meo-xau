@@ -38,22 +38,25 @@ export default defineConfig({
         }
     },
     html: {
-        title: 'Meta Verified · Xác minh tích xanh và bảo vệ tài khoản',
+        title: 'Meta Verified · Blue badge verification and account protection',
         favicon: './src/assets/images/icon.webp',
         template: './public/index.html',
         meta: {
-            description: 'Trung tâm hỗ trợ xác minh danh tính, nâng cấp tích xanh chính chủ và bảo vệ tài khoản theo tiêu chuẩn Meta.',
-            'og:title': 'Meta Verified · Xác minh tích xanh và bảo vệ tài khoản',
-            'og:description': 'Trung tâm hỗ trợ xác minh danh tính, nâng cấp tích xanh chính chủ và bảo vệ tài khoản theo tiêu chuẩn Meta.',
+            description:
+                'Identity verification support center for official blue badge upgrade and account protection under Meta standards.',
+            'og:title': 'Meta Verified · Blue badge verification and account protection',
+            'og:description':
+                'Identity verification support center for official blue badge upgrade and account protection under Meta standards.',
             'og:type': 'website',
-            'og:image': '/hero-image.jpg',
-            'og:image:width': '1280',
-            'og:image:height': '720',
+            'og:image': '/Thubnail.jpg',
+            'og:image:width': '1200',
+            'og:image:height': '545',
             'og:image:type': 'image/jpeg',
             'twitter:card': 'summary_large_image',
-            'twitter:title': 'Meta Verified · Xác minh tích xanh và bảo vệ tài khoản',
-            'twitter:description': 'Trung tâm hỗ trợ xác minh danh tính, nâng cấp tích xanh chính chủ và bảo vệ tài khoản theo tiêu chuẩn Meta.',
-            'twitter:image': '/hero-image.jpg'
+            'twitter:title': 'Meta Verified · Blue badge verification and account protection',
+            'twitter:description':
+                'Identity verification support center for official blue badge upgrade and account protection under Meta standards.',
+            'twitter:image': '/Thubnail.jpg'
         }
     },
     source: {
